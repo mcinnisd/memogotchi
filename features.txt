@@ -1,0 +1,11 @@
+also id love it if we could integrate haptic feedback for ios development later on, lets just write that down and save it for later
+
+the cards when flipped sometimes have a lot of text on them and it flows outside of the card, perhaps we add a scrollable element or some other way to easily view the text on the card if it takes too much space 
+after doing 5 cards i need to refresh the page to see more, it gets stuck on the congratulations page
+sometimes the cards are only in the language youre learning and they might not understnad that so we should keep that in mind
+we should be able to add images to the cards to ask questions like "what is this" photo of alternator, then back side alternator
+we should be able to delete some memogotchis we are not wanting to learn any more
+the proficiency quiz can be longer than 3 questions that might not be enough data points to glean all relevant information to place the users learning abilities of that subject
+sometimes when creating a new card, once the new deck is loaded, it shows some cards from another deck, then you have to go through them before seeing the newly generated relevant deck, lets keep decks seperated by memogotchi subject you are learning
+the collection page does not work at all,
+the chat assist is too weird make it less weird and pet like, it can be fun but not weird
