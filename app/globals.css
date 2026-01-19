@@ -3,17 +3,60 @@
 @tailwind utilities;
 
 :root {
-  --background: #0c0c0c;
-  --foreground: #00FF41;
+	--background: #000000;
+	--foreground: #4ade80;
+	/* Tailwind green-400 */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+	color: var(--foreground);
+	background: var(--background);
+	overscroll-behavior: none;
+	/* Prevent rubber-banding on mobile */
+	-webkit-font-smoothing: antialiased;
 }
 
-/* Scrollbar hiding for that embedded feeling */
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
+/* Retro CRT Scanline Overlay */
+body::after {
+	content: " ";
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+			rgba(0, 0, 0, 0.1) 50%);
+	background-size: 100% 4px;
+	/* Scanline spacing */
+	z-index: 9999;
+	pointer-events: none;
+	/* Click through */
+	opacity: 0.6;
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+
+@keyframes egg-wobble {
+
+	0%,
+	100% {
+		transform: rotate(0deg);
+	}
+
+	25% {
+		transform: rotate(-5deg);
+	}
+
+	75% {
+		transform: rotate(5deg);
+	}
+}
+
+.animate-egg-wobble {
+	animation: egg-wobble 2s infinite ease-in-out;
 }
