@@ -3,7 +3,6 @@
 import { createClient } from '@/utils/supabase/server';
 import {
 	calculateProficiencyUpdate,
-	calculateTargetDifficulty,
 	type PerformanceResult,
 	type ReviewSignals
 } from '@/lib/learning';
@@ -162,38 +161,4 @@ export async function getTargetDifficulty(userId: string, topic: string): Promis
 		difficultyLabel,
 		proficiency
 	};
-}
-
-/**
- * Initialize proficiency from placement test result
- */
-export async function initializeProficiency(
-	userId: string,
-	topic: string,
-	placementResult: 'Beginner' | 'Intermediate' | 'Advanced',
-	placementConfidence: number
-): Promise<void> {
-	const supabase = await createClient();
-
-	const proficiencyMap = {
-		'Beginner': 25,
-		'Intermediate': 50,
-		'Advanced': 75
-	};
-
-	const initialProficiency = proficiencyMap[placementResult];
-	const initialConfidence = Math.min(0.6, placementConfidence / 100);
-
-	await supabase
-		.from('topic_proficiency')
-		.upsert({
-			user_id: userId,
-			topic: topic,
-			proficiency_score: initialProficiency,
-			confidence: initialConfidence,
-			total_reviews: 0,
-			last_updated: new Date().toISOString()
-		}, {
-			onConflict: 'user_id,topic'
-		});
 }

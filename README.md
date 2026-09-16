@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Memogotchi
 
-## Getting Started
+Spaced repetition with a thin digital-pet pulse. **v0 is study-first:** pick a subject, review due cards, grade them (SM-2), keep the pet healthy, and generate more cards for the **same topic** when the queue empties.
 
-First, run the development server:
+## Product loop
+
+1. Onboard with one subject (honest single-player demo user)
+2. Study due cards on `/` (flip → swipe grade)
+3. Reviews persist SM-2 fields + pet XP/health
+4. Empty queue → generate next batch for the same topic (no dead-end)
+
+**Not in v0:** boss fights, pet chat, placement quiz, collection/stats routes, dual study UIs.
+
+## Stack
+
+- Next.js 14 (App Router) + React 18 + Tailwind
+- Supabase (Postgres) via server actions
+- Model-agnostic card generation (`lib/generation`) — default provider: xAI
+
+## Setup
 
 ```bash
+cp .env.example .env.local
+# fill Supabase + XAI_API_KEY
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Apply SQL under `supabase/migrations/` in order (Supabase CLI or SQL editor). Fresh installs should use the rewritten v0 migrations (profiles + `decks.topic` + `cards.content` / `next_review`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See `.env.example`:
 
-## Learn More
+| Variable | Purpose |
+|----------|---------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Anon key (v0 policies are open for single-player) |
+| `XAI_API_KEY` | xAI API key for deck generation |
+| `XAI_MODEL` | Optional model override (default `grok-2-latest`) |
+| `CARD_GENERATION_PROVIDER` | Optional; default `xai` |
 
-To learn more about Next.js, take a look at the following resources:
+### Identity
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+v0 uses a fixed demo user id (`lib/demo-user.ts`). This is **single-player**, not multi-user. Real auth is deferred.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
 
-## Deploy on Vercel
+```bash
+npm run dev      # local app
+npm run test     # Jest (SRS, learning, generation validation)
+npm run build    # production build
+npm run lint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Layout
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/page.tsx` — only product route (onboarding or home study loop)
+- `lib/srs.ts`, `lib/learning.ts` — pure algorithms + tests
+- `lib/generation/` — provider interface + validation + xAI adapter
+- `actions/` — decks, due cards, reviews, next-deck generation, pet pulse
+- `features.txt` — backlog / user feedback
+
+## License
+
+Private prototype.
