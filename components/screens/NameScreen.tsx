@@ -19,29 +19,29 @@ export function NameScreen({
 	return (
 		<div className="wall relative flex min-h-dvh flex-col">
 			<div className="daylight" />
-			<div className="pt-6">
+			<div className="pt-4">
 				<Windowsill>
 					<div className="h-full">
 						<PetArt species={species} state="well_loved" />
 					</div>
 				</Windowsill>
 			</div>
-			<div className="mx-auto mt-2 flex w-[88%] flex-col items-center gap-3">
-				<p className="torn w-full bg-paper px-4 py-3 text-center font-hand text-2xl text-ink">
+			<div className="mx-auto mt-4 flex w-[88%] flex-col items-center gap-4">
+				<p className="deckle w-full bg-[#fbf6ec] px-4 py-3 text-center type-heading text-ink shadow-paper">
 					I think I'll call you,
 				</p>
-				<label className="torn grid-paper relative w-full px-4 py-4">
-					<span className="absolute -left-2 top-4 h-6 w-10 -rotate-6 bg-[#d9c7a4]/90" />
-					<span className="absolute -right-2 bottom-3 h-6 w-10 rotate-6 bg-[#d9c7a4]/80" />
+				<label className="deckle ruled relative w-full px-4 py-5 shadow-paper">
+					<img src="/props/washi-2.png" alt="" className="absolute -left-1 top-3 h-5 w-12 -rotate-12 object-cover" />
+					<img src="/props/washi-0.png" alt="" className="absolute -right-1 bottom-3 h-5 w-12 rotate-6 object-cover" />
 					<span className="sr-only">Name</span>
 					<input
 						value={name}
 						onChange={(event) => setName(event.target.value)}
 						maxLength={24}
-						className="w-full bg-transparent text-center font-display text-4xl text-ink outline-none"
+						className="w-full bg-transparent text-center type-prompt-xl text-ink outline-none"
 					/>
 				</label>
-				<p className="font-hand text-lg text-ink-soft">You can always change this later.</p>
+				<p className="type-helper text-ink-soft">You can always change this later.</p>
 			</div>
 			<div className="mt-auto">
 				<Dock>

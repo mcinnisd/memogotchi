@@ -55,13 +55,13 @@ const STATES: SpriteState[] = ['hatchling', 'cared_for', 'well_loved', 'needs_lo
 export function PreviewApp({ name }: { name: string }) {
 	if (name === 'pets') {
 		return (
-			<div className="notebook min-h-dvh px-2 py-4">
-				<h1 className="text-center font-hand text-4xl text-ink">States</h1>
+			<div className="min-h-dvh px-2 py-4" style={{ background: '#b7aa9a' }}>
+				<h1 className="type-heading text-center text-ink">States</h1>
 				{SPECIES_IDS.map((id) => (
 					<div key={id} className="mt-3 grid grid-cols-4 gap-1">
 						{STATES.map((state) => (
-							<div key={state} className="grid-paper flex h-24 items-end justify-center overflow-hidden rounded-md">
-								<div className="h-20 w-full">
+							<div key={state} className="flex h-28 items-end justify-center overflow-hidden">
+								<div className="h-24 w-full">
 									<PetArt species={id} state={state} expression={state === 'needs_love' ? 'sad' : 'happy'} />
 								</div>
 							</div>
@@ -72,6 +72,7 @@ export function PreviewApp({ name }: { name: string }) {
 		);
 	}
 	if (name === 'subject') return <SubjectScreen initial="spanish" onContinue={noop} />;
+	if (name === 'subject-custom') return <SubjectScreen startCustom onContinue={noop} />;
 	if (name === 'hatch') return <HatchScreen topic="Spanish" onContinue={noop} />;
 	if (name === 'name') return <NameScreen species="chick" onContinue={noop} />;
 	if (name === 'friends') {
@@ -89,11 +90,12 @@ export function PreviewApp({ name }: { name: string }) {
 
 	const needs = name === 'needs-love';
 	const ended = name === 'session-end';
-	const choice = name === 'taste-choice';
-	const taste = name === 'taste-swipe' || choice;
+	const choice = name === 'taste-choice' || name === 'taste-choice-answered';
+	const taste = name.startsWith('taste');
+	const feeding = name === 'feeding';
 	const pet = needs ? FOX : CHICK;
-	const card = ended ? NOTE : needs ? PRINT : choice ? CHOICE : HOLA;
-	const sprite = needs ? 'needs_love' as const : ended ? 'well_loved' as const : 'well_loved' as const;
+	const card = ended ? NOTE : needs ? PRINT : choice ? CHOICE : feeding ? { ...HOLA, id: 'feed', prompt: 'hola' } : HOLA;
+	const sprite = needs ? 'needs_love' as const : 'well_loved' as const;
 	const status = needs ? 'needs_love' as const : 'looked_after' as const;
 
 	return (
@@ -108,12 +110,15 @@ export function PreviewApp({ name }: { name: string }) {
 			look={0}
 			mood="idle"
 			speech={needs ? 'Could use a little love.' : undefined}
-			card={card}
-			mode={ended ? 'rest' : taste ? 'taste' : 'idle'}
+			card={name === 'generating' ? null : card}
+			mode={ended ? 'rest' : taste || name === 'generating' ? 'taste' : feeding ? 'play' : 'idle'}
 			revealed={false}
 			showCoach={name === 'taste-swipe'}
-			progress={taste ? { index: choice ? 1 : 0, total: 5 } : undefined}
-			highlightOption={choice ? 'hello' : undefined}
+			progress={taste ? { index: choice ? 1 : 0, total: 5 } : feeding ? { index: 3, total: 10 } : undefined}
+			highlightOption={name === 'taste-choice' ? 'hello' : undefined}
+			initialFlipped={name === 'taste-flipped'}
+			review={name === 'taste-choice-answered' ? { picked: 'goodbye' } : null}
+			busy={name === 'generating'}
 			onOpenFriends={noop}
 			onLook={noop}
 			onReaction={noop}

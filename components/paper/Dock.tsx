@@ -29,12 +29,12 @@ export function DockButton({
 			onClick={onClick}
 			disabled={disabled}
 			className={cn(
-				'stitch relative inline-flex h-14 items-center justify-center gap-2 rounded-full px-6 font-body text-xl font-extrabold text-ink transition-transform',
-				'font-hand disabled:opacity-50',
+				'stitch relative inline-flex h-14 items-center justify-center gap-2 rounded-full px-6 type-button text-ink transition-transform',
+				'disabled:opacity-50',
 				!disabled && 'active:translate-y-px',
 				variant === 'primary' && 'bg-terracotta',
 				variant === 'secondary' && 'bg-sage',
-				variant === 'quiet' && 'bg-[#f6efe4]',
+				variant === 'quiet' && 'bg-[#f6efe4] type-helper',
 				className
 			)}
 		>

@@ -16,17 +16,72 @@
 
 html,
 body {
-	background: #efe4d2;
+	background: #f3eadc;
 	color: var(--ink);
 	min-height: 100%;
 }
 
 body {
 	font-family: var(--font-body), "Nunito", sans-serif;
-	background-color: #f3e6d2;
-	background-image: url('/props/paper-grain.png');
-	background-size: 160px auto;
+	font-size: 1rem;
+	letter-spacing: 0.01em;
+	background: linear-gradient(180deg, #f7f1e6 0%, #f3e7d4 100%);
 }
+
+.type-display {
+	font-family: var(--font-display), cursive;
+	font-size: 2.7rem;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 1.05;
+}
+
+.type-heading {
+	font-family: var(--font-display), cursive;
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: -0.015em;
+	line-height: 1.15;
+}
+
+.type-tag {
+	font-family: var(--font-hand), cursive;
+	font-size: 1.45rem;
+	font-weight: 400;
+	letter-spacing: 0.01em;
+	line-height: 1;
+}
+
+.type-button {
+	font-family: var(--font-hand), cursive;
+	font-size: 1.4rem;
+	font-weight: 400;
+	letter-spacing: 0.01em;
+	line-height: 1;
+}
+
+.type-helper {
+	font-family: var(--font-hand), cursive;
+	font-size: 1.05rem;
+	font-weight: 400;
+	letter-spacing: 0.01em;
+	line-height: 1.25;
+}
+
+.type-body {
+	font-family: var(--font-body), "Nunito", sans-serif;
+	font-size: 0.95rem;
+	font-weight: 600;
+	letter-spacing: 0.01em;
+	line-height: 1.35;
+}
+
+.type-prompt-xl { font-family: var(--font-hand), cursive; font-size: 2.65rem; line-height: 1.05; letter-spacing: -0.01em; }
+.type-prompt-lg { font-family: var(--font-hand), cursive; font-size: 2rem; line-height: 1.15; }
+.type-prompt-md { font-family: var(--font-hand), cursive; font-size: 1.45rem; line-height: 1.25; }
+.type-prompt-sm { font-family: var(--font-hand), cursive; font-size: 1.15rem; line-height: 1.3; }
+.type-option { font-family: var(--font-hand), cursive; font-size: 1.55rem; line-height: 1.1; }
+.type-option-sm { font-family: var(--font-hand), cursive; font-size: 1.2rem; line-height: 1.2; }
 
 button,
 input {
@@ -34,10 +89,7 @@ input {
 }
 
 .wall {
-	background:
-		radial-gradient(280px 180px at 0% 0%, rgba(255, 255, 255, 0.75), transparent 62%),
-		radial-gradient(240px 160px at 100% 8%, rgba(214, 186, 150, 0.2), transparent 70%),
-		linear-gradient(180deg, #f7f1e6 0%, #f3e7d6 100%);
+	background: linear-gradient(180deg, #f6efe4 0%, #f1e4d2 100%);
 }
 
 .daylight {
@@ -61,25 +113,30 @@ input {
 		to bottom,
 		transparent 0,
 		transparent 27px,
-		rgba(188, 164, 126, 0.45) 28px
+		rgba(156, 176, 196, 0.28) 28px
 	);
-	box-shadow: inset 18px 0 0 #efe2cc, inset 22px 0 0 rgba(196, 92, 74, 0.35);
+	box-shadow: inset 16px 0 0 #efe4d2, inset 19px 0 0 rgba(196, 92, 74, 0.28);
 }
 
+.ruled,
 .grid-paper {
 	background-color: #fbf6ec;
-	background-image:
-		linear-gradient(var(--line) 1px, transparent 1px),
-		linear-gradient(90deg, var(--line) 1px, transparent 1px);
-	background-size: 100% 18px, 18px 18px;
-	background-position: 0 8px, 0 0;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='156' fill='none'><path d='M0 26 C 30 24 60 28 90 26 S 150 24 180 27' stroke='%238aa0b8' stroke-opacity='0.33' stroke-width='1'/><path d='M0 52 C 40 50 70 54 110 51 S 160 49 180 53' stroke='%238aa0b8' stroke-opacity='0.28' stroke-width='1'/><path d='M0 78 C 28 80 80 75 120 78 S 160 80 180 76' stroke='%238aa0b8' stroke-opacity='0.3' stroke-width='1'/><path d='M0 104 C 36 102 90 107 130 103 S 165 101 180 105' stroke='%238aa0b8' stroke-opacity='0.26' stroke-width='1'/><path d='M0 130 C 40 132 80 127 120 131 S 160 133 180 129' stroke='%238aa0b8' stroke-opacity='0.24' stroke-width='1'/><path d='M28 0 C 26 40 30 80 27 120 S 25 150 29 156' stroke='%23c4a574' stroke-opacity='0.18' stroke-width='1'/><path d='M64 0 C 66 30 61 90 65 130 S 67 150 63 156' stroke='%23c4a574' stroke-opacity='0.12' stroke-width='1'/><path d='M108 0 C 106 50 112 90 107 140 S 105 150 109 156' stroke='%23c4a574' stroke-opacity='0.12' stroke-width='1'/><path d='M150 0 C 152 40 147 100 151 156' stroke='%23c4a574' stroke-opacity='0.1' stroke-width='1'/></svg>");
+	background-size: 180px 156px;
 }
 
 .scrap-sheet {
-	background-color: #f6efe3;
-	background-image: url('/props/paper-grain.png');
-	background-size: 140px auto;
+	background: linear-gradient(180deg, #f7f1e6 0%, #f3e8d8 100%);
 	clip-path: polygon(1.2% 1.6%, 9% 0, 22% 1.4%, 41% 0, 63% 1.2%, 81% 0, 94% 1.5%, 100% 4%, 99% 22%, 100% 48%, 98.6% 78%, 100% 96%, 88% 100%, 64% 98.8%, 38% 100%, 12% 99%, 0 95%, 1.2% 72%, 0 46%, 1% 12%);
+}
+
+.deckle {
+	clip-path: polygon(2% 3%, 12% 0, 28% 2%, 46% 0, 67% 2.2%, 84% 0, 98% 3%, 100% 16%, 98% 34%, 100% 58%, 97.5% 78%, 100% 96%, 82% 100%, 60% 97.5%, 38% 100%, 14% 98%, 0 94%, 2% 74%, 0 52%, 1.5% 28%, 0 10%);
+}
+
+.sill-board {
+	background: linear-gradient(180deg, #f3ddb8 0%, #e8c48c 42%, #d9ae76 100%);
+	box-shadow: 0 12px 0 #c99662, 0 18px 16px rgba(90, 60, 40, 0.08);
 }
 
 .torn {

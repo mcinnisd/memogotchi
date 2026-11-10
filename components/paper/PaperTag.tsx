@@ -16,7 +16,7 @@ export function PaperTag({
 		<Tag
 			onClick={onClick}
 			className={cn(
-				'stitch relative inline-flex items-center gap-2 rounded-2xl px-4 py-2 font-hand text-2xl text-ink shadow-sm',
+				'stitch relative inline-flex items-center gap-2 rounded-2xl px-4 py-2 type-tag text-ink shadow-sm',
 				tone === 'sage' ? 'bg-sage' : 'bg-paper',
 				onClick && 'active:translate-y-px',
 				className

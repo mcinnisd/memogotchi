@@ -21,8 +21,8 @@ export function PaperChip({
 			onClick={onClick}
 			style={{ transform: `rotate(${rotation}deg)` }}
 			className={cn(
-				'relative min-w-[7.5rem] px-4 py-3 text-center font-hand text-[1.65rem] leading-none text-ink shadow-paper',
-				selected ? 'bg-[#f4c3ae]' : 'grid-paper',
+				'deckle relative min-w-[7.5rem] px-4 py-3 text-center type-heading text-ink shadow-paper',
+				selected ? 'bg-[#f4c3ae]' : 'ruled',
 				className
 			)}
 		>

@@ -25,7 +25,7 @@ export function FriendRow({
 	onDelete: () => void;
 }) {
 	return (
-		<article className="torn grid-paper relative flex items-center gap-3 px-3 py-3">
+		<article className="deckle ruled relative flex items-center gap-3 px-3 py-3 shadow-paper">
 			<span
 				className="absolute -top-2 left-6 h-4 w-12 rounded-[1px] bg-[#e4d2b4]"
 				style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,.4) 4px)' }}
@@ -35,16 +35,16 @@ export function FriendRow({
 					<PetArt species={species} state={sprite} brighten={status === 'needs_love' ? 0.55 : 1} />
 				</div>
 				<div className="min-w-0">
-					<div className="truncate font-display text-2xl font-semibold leading-none text-ink">{name}</div>
-					<div className="mt-1 font-body text-sm text-ink-soft">{topic}</div>
+					<div className="truncate type-heading leading-none text-ink">{name}</div>
+					<div className="mt-1 type-body text-ink-soft">{topic}</div>
 					<StatusChip status={status} className="mt-2" />
 				</div>
 			</button>
 			<div className="flex shrink-0 flex-col items-end gap-2 self-end">
-				<button type="button" onClick={onRename} className="font-hand text-sm text-ink-soft underline decoration-dotted">
+				<button type="button" onClick={onRename} className="type-helper text-ink-soft underline decoration-dotted">
 					rename
 				</button>
-				<button type="button" onClick={onDelete} className="font-hand text-sm text-ink-soft underline decoration-dotted">
+				<button type="button" onClick={onDelete} className="type-helper text-ink-soft underline decoration-dotted">
 					let go
 				</button>
 			</div>

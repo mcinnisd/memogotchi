@@ -24,7 +24,7 @@ export function WelcomeScreen({ onHatch }: { onHatch: () => void }) {
 		<div className="wall relative flex min-h-dvh flex-col">
 			<div className="daylight" />
 			<div className="flex flex-1 flex-col items-center justify-center px-6 pb-8 pt-16 text-center">
-				<h1 className="font-display text-5xl font-semibold tracking-tight text-ink">Memogotchi</h1>
+				<h1 className="type-display text-ink">Memogotchi</h1>
 				<motion.div
 					className="my-10 h-56 w-44"
 					animate={reduce ? undefined : { rotate: crack > 0.8 ? [0, -2, 2, 0] : [0, -1.2, 1.2, 0] }}
@@ -32,7 +32,7 @@ export function WelcomeScreen({ onHatch }: { onHatch: () => void }) {
 				>
 					<EggArt crack={crack} />
 				</motion.div>
-				<p className="max-w-[16rem] font-hand text-2xl leading-snug text-ink">
+				<p className="max-w-[16rem] type-heading leading-snug text-ink">
 					Keep a little life by practicing a little every day.
 				</p>
 			</div>

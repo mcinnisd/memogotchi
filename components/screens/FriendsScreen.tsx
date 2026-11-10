@@ -33,7 +33,7 @@ export function FriendsScreen({
 
 	return (
 		<div className="notebook flex min-h-dvh flex-col px-4 pb-6 pt-8">
-			<h1 className="torn mx-auto bg-[#f6ead4] px-8 py-2 text-center font-display text-4xl text-ink">Your friends</h1>
+			<h1 className="deckle mx-auto bg-[#f6ead4] px-8 py-2 text-center type-display text-ink">Your friends</h1>
 			<div className="mt-5 flex flex-col gap-4">
 				{pets.map((pet) => {
 					const status = homeyStatus(pet.lastFedAt, now);

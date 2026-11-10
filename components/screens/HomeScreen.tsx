@@ -25,6 +25,8 @@ export function HomeScreen({
 	showCoach,
 	progress,
 	highlightOption,
+	initialFlipped,
+	review,
 	busy,
 	onOpenFriends,
 	onLook,
@@ -52,6 +54,8 @@ export function HomeScreen({
 	showCoach?: boolean;
 	progress?: { index: number; total: number };
 	highlightOption?: string;
+	initialFlipped?: boolean;
+	review?: { picked: string } | null;
 	busy?: boolean;
 	onOpenFriends: () => void;
 	onLook: (value: number) => void;
@@ -90,7 +94,15 @@ export function HomeScreen({
 				</Windowsill>
 				<div className="flex min-h-0 flex-1 flex-col items-center justify-center pb-2">
 					{busy ? (
-						<p className="font-hand text-2xl text-ink-soft">One quiet moment…</p>
+						<div className="flex w-full flex-col items-center px-6">
+							<p className="type-heading text-center text-ink">Making your cards</p>
+							<div className="relative mt-5 h-36 w-48">
+								<div className="deckle absolute inset-0 translate-y-3 -rotate-6 bg-[#e7b89a]" />
+								<div className="deckle ruled absolute inset-0 translate-y-1.5 rotate-3" />
+								<div className="deckle ruled absolute inset-0 -rotate-1 shadow-paper" />
+							</div>
+							<p className="type-helper mt-4 text-center text-ink-soft">A little pile, just for {topic}.</p>
+						</div>
 					) : (
 						<CardStack
 							card={card}
@@ -99,6 +111,8 @@ export function HomeScreen({
 							showCoach={showCoach}
 							progress={progress}
 							highlightOption={highlightOption}
+							initialFlipped={initialFlipped}
+							review={review}
 							onLook={onLook}
 							onReaction={onReaction}
 							onAnswer={onAnswer}
