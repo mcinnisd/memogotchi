@@ -1,22 +1,18 @@
 'use server';
 
-import { createClient } from '@/utils/supabase/server';
 import { generateDeck } from './generateDeck';
 import { getTargetDifficulty } from './learningEngine';
+import { FEEDING } from '@/lib/config';
 
-export async function generateNextDeck(userId: string, currentTopic: string) {
-	// 1. Get target difficulty from proficiency engine
+export async function generateNextDeck(userId: string, currentTopic: string, petId?: string) {
 	const target = await getTargetDifficulty(userId, currentTopic);
-
-	console.log(`Adaptive: Topic=${currentTopic}, Proficiency=${target.proficiency.toFixed(0)}, Target=${target.difficultyLabel} (${target.difficulty}/10)`);
-
-	// 2. Generate deck at target difficulty with new content
-	return await generateDeck({
+	return generateDeck({
 		topic: currentTopic,
 		userId,
+		petId,
 		difficulty: target.difficultyLabel,
 		numericDifficulty: target.difficulty,
-		// Request unique content
-		additionalContext: `Generate COMPLETELY NEW content. Avoid repeating basic concepts. Session ID: ${Date.now()}`
+		count: FEEDING.minCards + 2,
+		additionalContext: `New cards only. Do not repeat a question you would use on day one if the learner is past beginner. Session ${Date.now()}`,
 	});
 }

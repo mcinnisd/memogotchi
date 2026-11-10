@@ -1,166 +1,139 @@
+import { feedPet } from './feedPet';
+import { getDueCards } from './getDueCards';
+import { generateDeck } from './generateDeck';
+import { updatePetState } from './petLogic';
+import { createClient } from '@/utils/supabase/server';
+import type { PetCareSnapshot } from '@/lib/care/types';
 
-import { generateDeck } from '../actions/generateDeck';
-import { updatePetState } from '../actions/petLogic';
-import { getDueCards } from '../actions/getDueCards';
-import { submitReview } from '../actions/submitReview';
-import { generatePetPersona, initializeUser } from '../actions/onboarding';
-import { feedPet } from '../actions/feedPet';
-import { generateBossEncounter, submitBossResult } from '../actions/bossFight';
-import { createClient } from '../utils/supabase/server';
-
-// Mock Supabase
-jest.mock('../utils/supabase/server', () => ({
+jest.mock('@/utils/supabase/server', () => ({
 	createClient: jest.fn(),
 }));
 
-// Mock Fetch Global
 global.fetch = jest.fn() as jest.Mock;
 
-describe('Server Actions', () => {
-	let mockSupabase: any;
-	let mockProfileBuilder: any;
-	let mockCardBuilder: any;
+function chain(resolved: { data: unknown; error: unknown }) {
+	const builder: Record<string, jest.Mock> = {};
+	const self = () => builder;
+	builder.insert = jest.fn(() => builder);
+	builder.select = jest.fn(() => builder);
+	builder.update = jest.fn(() => builder);
+	builder.delete = jest.fn(() => builder);
+	builder.eq = jest.fn(() => builder);
+	builder.or = jest.fn(() => builder);
+	builder.order = jest.fn(() => builder);
+	builder.limit = jest.fn(() => builder);
+	builder.in = jest.fn(() => builder);
+	builder.single = jest.fn().mockResolvedValue(resolved);
+	builder.then = jest.fn((resolve: (value: unknown) => void) => resolve(resolved));
+	void self;
+	return builder;
+}
+
+describe('pet care actions', () => {
+	const petRow = {
+		id: 'pet-1',
+		user_id: 'user-1',
+		name: 'Fox',
+		species: 'fox',
+		stage: 'hatchling',
+		topic: 'Python',
+		care: 22,
+		hunger: 78,
+		days_cared: 2,
+		last_fed_at: '2026-06-10T12:00:00.000Z',
+		mode: 'homey',
+		mode_state: {},
+		created_at: '2026-06-01T12:00:00.000Z',
+	};
+
+	let pets: ReturnType<typeof chain>;
+	let profiles: ReturnType<typeof chain>;
+	let cards: ReturnType<typeof chain>;
+	let decks: ReturnType<typeof chain>;
 
 	beforeEach(() => {
 		jest.clearAllMocks();
-
-		const mockDeckBuilder = {
-			insert: jest.fn().mockReturnThis(),
-			select: jest.fn().mockReturnThis(),
-			single: jest.fn().mockResolvedValue({ data: { id: 'deck-123' }, error: null }),
-		};
-
-		mockCardBuilder = {
-			insert: jest.fn().mockResolvedValue({ error: null }),
-			select: jest.fn().mockReturnThis(),
-			single: jest.fn(),
-			update: jest.fn().mockReturnThis(),
-			eq: jest.fn().mockReturnThis(),
-			lt: jest.fn().mockReturnThis(), // For Boss Fight calc
-			lte: jest.fn().mockReturnThis(),
-			limit: jest.fn().mockReturnThis(),
-			order: jest.fn().mockResolvedValue({
-				data: [{ id: 'card-1', Decks: { topic: 'Math' } }],
-				error: null
-			}),
-			then: (resolve: any) => resolve({ error: null }),
-		};
-
-		mockProfileBuilder = {
-			select: jest.fn().mockReturnThis(),
-			eq: jest.fn().mockReturnThis(),
-			single: jest.fn(),
-			update: jest.fn().mockReturnThis(),
-			upsert: jest.fn().mockReturnThis(),
-			then: (resolve: any) => resolve({ error: null, data: [] }),
-		};
-
-		mockSupabase = {
-			from: jest.fn().mockImplementation((table: string) => {
-				if (table === 'Decks') return mockDeckBuilder;
-				if (table === 'Cards') return mockCardBuilder;
-				if (table === 'Profiles') return mockProfileBuilder;
-				return mockProfileBuilder;
-			}),
-		};
-
-		(createClient as jest.Mock).mockResolvedValue(mockSupabase);
-	});
-
-	// ... (Keeping reduced test scope for brevity in this file update, but covering NEW features)
-
-	describe('Incentives: XP Logic (petLogic)', () => {
-		test('Grade 4 (Good) gives Max XP (+20)', async () => {
-			mockProfileBuilder.single.mockResolvedValue({ data: { xp: 0, health: 100, stage: 'egg' }, error: null });
-			const result = await updatePetState('u-1', 4);
-			expect(result.newState.xp).toBe(20);
-		});
-
-		test('Grade 3 (Hard) gives Modest XP (+10)', async () => {
-			mockProfileBuilder.single.mockResolvedValue({ data: { xp: 0, health: 100, stage: 'egg' }, error: null });
-			const result = await updatePetState('u-1', 3);
-			expect(result.newState.xp).toBe(10);
-		});
-
-		test('Grade 5 (Easy) gives Minimal XP (+5)', async () => {
-			mockProfileBuilder.single.mockResolvedValue({ data: { xp: 0, health: 100, stage: 'egg' }, error: null });
-			const result = await updatePetState('u-1', 5);
-			expect(result.newState.xp).toBe(5);
+		pets = chain({ data: petRow, error: null });
+		profiles = chain({ data: { current_streak: 1, last_study_date: '2026-06-14T12:00:00.000Z' }, error: null });
+		cards = chain({ data: [], error: null });
+		decks = chain({ data: { id: 'deck-1' }, error: null });
+		(createClient as jest.Mock).mockResolvedValue({
+			from: (table: string) => {
+				if (table === 'pets') return pets;
+				if (table === 'profiles') return profiles;
+				if (table === 'cards') return cards;
+				if (table === 'decks') return decks;
+				throw new Error(`unexpected table ${table}`);
+			},
 		});
 	});
 
-	describe('Boss Fight', () => {
-		test('generateBossEncounter finds leech cards', async () => {
-			// Mock fetch (Grok)
-			(global.fetch as jest.Mock).mockResolvedValue({
-				ok: true,
-				json: async () => ({
-					choices: [{ message: { content: '[{"question": "BossQ"}]' } }]
-				})
-			});
-			process.env.XAI_API_KEY = 'test';
+	test('finishing a feeding restores care on pets, not a coin balance', async () => {
+		const result = await feedPet('user-1', 'pet-1');
+		expect(result.success).toBe(true);
+		expect(pets.update).toHaveBeenCalledWith(expect.objectContaining({
+			care: 100,
+			hunger: 0,
+		}));
+		expect(profiles.update).not.toHaveBeenCalledWith(expect.objectContaining({ coins: expect.anything() }));
+		const tables = (createClient as jest.Mock).mock.results[0].value;
+		void tables;
+		expect(pets.update).toHaveBeenCalled();
+		expect(profiles.update.mock.calls.some((call) => 'health' in (call[0] as object))).toBe(false);
+	});
 
-			// Mock Cards Query (finding leeches)
-			// Chain: select -> eq -> eq -> lt -> order -> limit -> then
-			// We need to ensure the base mock supports this chain, OR override it here.
-			// Current chain in implementation: select().eq().eq().lt().order().limit()
+	test('due cards are queried for a single pet', async () => {
+		await getDueCards('user-1', 'pet-1');
+		expect(cards.eq).toHaveBeenCalledWith('pet_id', 'pet-1');
+		expect(cards.eq).toHaveBeenCalledWith('decks.user_id', 'user-1');
+	});
 
-			const specificCardBuilder = {
-				...mockCardBuilder,
-				lt: jest.fn().mockReturnThis(),
-				order: jest.fn().mockReturnThis(),
-				limit: jest.fn().mockResolvedValue({
-					data: [
-						{ id: 'c1', content: { question: 'Q1' }, ease_factor: 1.5 },
-						{ id: 'c2', content: { question: 'Q2' }, ease_factor: 1.6 },
-						{ id: 'c3', content: { question: 'Q3' }, ease_factor: 1.7 }
-					],
-					error: null
-				})
-			};
-
-			// Ensure chain continuity
-			specificCardBuilder.select.mockReturnValue(specificCardBuilder);
-			specificCardBuilder.eq.mockReturnValue(specificCardBuilder);
-			// lt and order are already returning 'this' (the specific builder) via mockReturnThis(), 
-			// BUT standard mockReturnThis returns "this" context of the mock function, which might be tricky if copied.
-			// Safer to explicit return:
-			specificCardBuilder.lt.mockReturnValue(specificCardBuilder);
-			specificCardBuilder.order.mockReturnValue(specificCardBuilder);
-
-			mockSupabase.from.mockImplementation((table: string) => {
-				if (table === 'Cards') return specificCardBuilder;
-				return mockProfileBuilder;
-			});
-
-			const result = await generateBossEncounter('u-1', 'Code');
-
-			expect(specificCardBuilder.lt).toHaveBeenCalledWith('ease_factor', 2.3);
-			expect(result.available).toBe(true);
-			// @ts-ignore
-			expect(result.questions[0].question).toBe("BossQ");
+	test('a new deck is stored on that pet', async () => {
+		process.env.XAI_API_KEY = 'test';
+		(global.fetch as jest.Mock).mockResolvedValue({
+			ok: true,
+			json: async () => ({
+				choices: [{
+					message: {
+						content: JSON.stringify([
+							{ question: 'hola', answer: 'hello', type: 'basic' },
+							{ question: 'What does gato mean?', answer: 'cat', type: 'choice', options: ['cat', 'dog'] },
+						]),
+					},
+				}],
+			}),
 		});
 
-		test('submitBossResult handles Win (Big Rewards)', async () => {
-			mockProfileBuilder.single.mockResolvedValue({ data: { xp: 100, coins: 50, health: 50 }, error: null });
-
-			const result = await submitBossResult('u-1', true);
-
-			expect(result.success).toBe(true);
-			expect(mockProfileBuilder.update).toHaveBeenCalledWith(
-				expect.objectContaining({ xp: 200, coins: 100, health: 100 })
-			);
+		const result = await generateDeck({
+			topic: 'Spanish',
+			userId: 'user-1',
+			petId: 'pet-spanish',
+			count: 2,
 		});
 
-		test('submitBossResult handles Loss (Penalty)', async () => {
-			mockProfileBuilder.single.mockResolvedValue({ data: { health: 50 }, error: null });
+		expect(result.success).toBe(true);
+		expect(decks.insert).toHaveBeenCalledWith(expect.objectContaining({
+			pet_id: 'pet-spanish',
+			topic: 'Spanish',
+			user_id: 'user-1',
+		}));
+		expect(cards.insert).toHaveBeenCalledWith(expect.arrayContaining([
+			expect.objectContaining({ pet_id: 'pet-spanish', front: 'hola' }),
+		]));
+		const inserted = cards.insert.mock.calls[0][0] as { pet_id: string }[];
+		expect(inserted.every((card) => card.pet_id === 'pet-spanish')).toBe(true);
+	});
 
-			const result = await submitBossResult('u-1', false);
-
-			// Penalty: -20 Health
-			expect(mockProfileBuilder.update).toHaveBeenCalledWith(
-				expect.objectContaining({ health: 30 })
-			);
-		});
+	test('a wrong answer does not change the care snapshot', async () => {
+		const before: PetCareSnapshot = {
+			stage: 'cared_for',
+			daysCared: 6,
+			lastFedAt: '2026-06-14T12:00:00.000Z',
+			care: 68,
+			hunger: 32,
+		};
+		const result = await updatePetState('user-1', 1, before);
+		expect(result.evolved).toBe(false);
+		expect(result.snapshot).toEqual(before);
 	});
 });

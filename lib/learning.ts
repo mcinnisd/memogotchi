@@ -30,8 +30,8 @@ const WEIGHTS = {
 
 // Time thresholds (adjust based on proficiency)
 function getTimeScore(timeMs: number, proficiency: number): number {
-	// Lower proficiency = more lenient timing
-	const proficiencyFactor = 1 + (proficiency - 50) / 100; // 0.5 to 1.5
+	// Lower proficiency = more lenient timing (a wider window).
+	const proficiencyFactor = 1 + (50 - proficiency) / 100; // 1.5 at 0, 0.5 at 100
 
 	const optimalMin = 2000 * proficiencyFactor;  // 2-3 seconds at baseline
 	const optimalMax = 10000 * proficiencyFactor; // 10-15 seconds at baseline
@@ -81,10 +81,12 @@ export function calculatePerformance(signals: ReviewSignals, currentProficiency:
 	const timeScore = getTimeScore(signals.responseTimeMs, currentProficiency);
 	const flipScore = getFlipScore(signals.wasFlipped);
 
+	// flipScore is already on the weight's scale (0.15 known, 0.05 peeked).
+	// Grade and time are 0–1 signals and still take their weights.
 	const rawScore =
 		(gradeScore * WEIGHTS.grade) +
 		(timeScore * WEIGHTS.time) +
-		(flipScore * WEIGHTS.flip);
+		flipScore;
 
 	const difficultyAdjusted = getDifficultyAdjustment(rawScore, signals.cardDifficulty);
 
