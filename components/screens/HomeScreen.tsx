@@ -68,9 +68,9 @@ export function HomeScreen({
 	onRest: () => void;
 }) {
 	return (
-		<div className="wall relative flex min-h-dvh flex-col">
-			<div className="scrap-sheet relative mx-2 mt-3 flex min-h-0 flex-1 flex-col overflow-hidden shadow-paper">
-				<div className="flex items-start justify-between gap-2 px-3 pt-3">
+		<div className="page relative flex min-h-dvh flex-col">
+			<div className="flex min-h-0 flex-1 flex-col">
+				<div className="flex items-start justify-between gap-2 px-4 pt-4">
 					<PaperTag onClick={onOpenFriends}>
 						<span>{name}</span>
 						<span className="inline-block h-7 w-7">
@@ -97,9 +97,9 @@ export function HomeScreen({
 						<div className="flex w-full flex-col items-center px-6">
 							<p className="type-heading text-center text-ink">Making your cards</p>
 							<div className="relative mt-5 h-36 w-48">
-								<div className="deckle absolute inset-0 translate-y-3 -rotate-6 bg-[#e7b89a]" />
-								<div className="deckle ruled absolute inset-0 translate-y-1.5 rotate-3" />
-								<div className="deckle ruled absolute inset-0 -rotate-1 shadow-paper" />
+								<div className="notepad absolute inset-0 translate-y-2 rotate-[1.2deg] bg-[#e7cbb4]" />
+								<div className="notepad ruled absolute inset-0 translate-y-1 -rotate-[0.6deg]" />
+								<div className="notepad ruled absolute inset-0 rotate-[0.4deg] shadow-paper" />
 							</div>
 							<p className="type-helper mt-4 text-center text-ink-soft">A little pile, just for {topic}.</p>
 						</div>
@@ -121,7 +121,7 @@ export function HomeScreen({
 				</div>
 				{mode === 'taste' ? (
 					<Dock>
-						<DockButton variant="quiet" className="w-64 text-lg" onClick={onSkip}>Skip if you're new</DockButton>
+						<DockButton variant="quiet" className="w-64" onClick={onSkip}>Skip if you're new</DockButton>
 					</Dock>
 				) : mode === 'rest' ? (
 					<Dock>
@@ -136,8 +136,8 @@ export function HomeScreen({
 							</span>
 							Feed
 						</DockButton>
-						<DockButton variant="secondary" className="h-14 w-[4.8rem] flex-col gap-0 px-0 text-sm leading-none" onClick={onChat}>
-							<span className="text-base leading-none" aria-hidden>♡</span>
+						<DockButton variant="secondary" className="h-14 w-[4.8rem] flex-col gap-0 px-0 leading-none" onClick={onChat}>
+							<span className="leading-none" aria-hidden>♡</span>
 							Chat
 						</DockButton>
 					</Dock>

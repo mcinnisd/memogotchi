@@ -17,14 +17,14 @@ export function HatchScreen({
 	const others = SPECIES_IDS.filter((id) => id !== selected);
 
 	return (
-		<div className="notebook flex min-h-dvh flex-col px-4 pb-4 pt-8">
+		<div className="notebook page flex min-h-dvh flex-col px-4 pb-4 pt-8">
 			<h1 className="type-display text-center text-ink">Who hatches?</h1>
 			<div className="mt-3 flex justify-center">
 				<PaperTag tone="sage">{topic}</PaperTag>
 			</div>
 			<button
 				type="button"
-				className="deckle ruled mx-auto mt-4 flex w-[78%] flex-col items-center px-3 py-3 shadow-paper"
+				className="notepad mx-auto mt-4 flex w-[78%] flex-col items-center bg-[#fbf6ec] px-3 py-3 shadow-paper"
 			>
 				<div className="h-52 w-full">
 					<PetArt species={selected} state="well_loved" />
@@ -53,7 +53,7 @@ export function HatchScreen({
 
 function SpeciesTile({ id, onClick }: { id: SpeciesId; onClick: () => void }) {
 	return (
-		<button type="button" onClick={onClick} className="deckle ruled flex flex-col items-center px-1 py-1 shadow-sm">
+		<button type="button" onClick={onClick} className="notepad flex flex-col items-center bg-[#fbf6ec] px-1 py-1 shadow-sm">
 			<div className="h-14 w-14">
 				<PetArt species={id} state="well_loved" brighten={1} />
 			</div>

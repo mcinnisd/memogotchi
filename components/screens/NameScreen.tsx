@@ -17,8 +17,7 @@ export function NameScreen({
 	const [name, setName] = useState(speciesName(species));
 
 	return (
-		<div className="wall relative flex min-h-dvh flex-col">
-			<div className="daylight" />
+		<div className="page relative flex min-h-dvh flex-col">
 			<div className="pt-4">
 				<Windowsill>
 					<div className="h-full">
@@ -26,30 +25,28 @@ export function NameScreen({
 					</div>
 				</Windowsill>
 			</div>
-			<div className="mx-auto mt-4 flex w-[88%] flex-col items-center gap-4">
-				<p className="deckle w-full bg-[#fbf6ec] px-4 py-3 text-center type-heading text-ink shadow-paper">
+			<div className="mx-auto flex w-full max-w-[24rem] flex-1 flex-col justify-evenly px-4 py-6">
+				<p className="notepad w-full bg-[#fbf6ec] px-4 py-3 text-center type-heading text-ink shadow-paper">
 					I think I'll call you,
 				</p>
-				<label className="deckle ruled relative w-full px-4 py-5 shadow-paper">
-					<img src="/props/washi-2.png" alt="" className="absolute -left-1 top-3 h-5 w-12 -rotate-12 object-cover" />
-					<img src="/props/washi-0.png" alt="" className="absolute -right-1 bottom-3 h-5 w-12 rotate-6 object-cover" />
+				<label className="notepad ruled relative w-full px-4 py-5 shadow-paper">
+					<img src="/props/washi-2.png" alt="" className="absolute -left-1 top-3 h-5 w-12 -rotate-6 object-cover" />
+					<img src="/props/washi-0.png" alt="" className="absolute -right-1 bottom-3 h-5 w-12 rotate-3 object-cover" />
 					<span className="sr-only">Name</span>
 					<input
 						value={name}
 						onChange={(event) => setName(event.target.value)}
 						maxLength={24}
-						className="w-full bg-transparent text-center type-prompt-xl text-ink outline-none"
+						className="card-copy w-full bg-[#fbf6ec] text-center type-prompt-xl text-ink outline-none"
 					/>
 				</label>
-				<p className="type-helper text-ink-soft">You can always change this later.</p>
+				<p className="text-center type-helper text-ink-soft">You can always change this later.</p>
 			</div>
-			<div className="mt-auto">
-				<Dock>
-					<DockButton className="w-56" disabled={!name.trim()} onClick={() => onContinue(name.trim())}>
-						Continue
-					</DockButton>
-				</Dock>
-			</div>
+			<Dock>
+				<DockButton className="w-56" disabled={!name.trim()} onClick={() => onContinue(name.trim())}>
+					Continue
+				</DockButton>
+			</Dock>
 		</div>
 	);
 }

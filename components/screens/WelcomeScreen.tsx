@@ -21,9 +21,8 @@ export function WelcomeScreen({ onHatch }: { onHatch: () => void }) {
 	};
 
 	return (
-		<div className="wall relative flex min-h-dvh flex-col">
-			<div className="daylight" />
-			<div className="flex flex-1 flex-col items-center justify-center px-6 pb-8 pt-16 text-center">
+		<div className="page relative flex min-h-dvh flex-col">
+			<div className="flex flex-1 flex-col items-center justify-center px-4 pb-8 pt-16 text-center">
 				<h1 className="type-display text-ink">Memogotchi</h1>
 				<motion.div
 					className="my-10 h-56 w-44"

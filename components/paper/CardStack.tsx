@@ -88,7 +88,7 @@ export function CardStack({
 
 	if (!card) {
 		return (
-			<div className="deckle ruled flex h-44 w-[86%] items-center justify-center px-6 text-center type-heading text-ink-soft shadow-paper">
+			<div className="notepad ruled flex h-44 w-[86%] items-center justify-center px-6 text-center type-heading text-ink-soft shadow-paper">
 				Ready when you are.
 			</div>
 		);
@@ -146,8 +146,8 @@ export function CardStack({
 	return (
 		<div className="relative flex w-full flex-col items-center">
 			<div className={cn('relative w-[88%] max-w-[340px]', card.type === 'choice' ? 'h-[18.5rem]' : 'h-56')}>
-				<div className="absolute inset-0 translate-y-4 -rotate-[4deg] rounded-sm bg-[#e7b89a] shadow-sm" />
-				<div className="ruled absolute inset-0 translate-y-2.5 rotate-[2.5deg] rounded-sm shadow-sm" />
+				<div className="notepad absolute inset-x-1 top-3 -bottom-3.5 -rotate-[1deg] bg-[#e7cbb4] shadow-sm" />
+				<div className="notepad absolute inset-x-0.5 top-2 -bottom-2 rotate-[0.6deg] bg-[#f0dcc8] shadow-sm" />
 				<div className="absolute inset-x-3 -top-1 z-10 h-4 w-16 -rotate-6 bg-[url('/props/washi-1.png')] bg-cover opacity-90" />
 				<motion.div
 					key={card.id}
@@ -163,14 +163,14 @@ export function CardStack({
 					onDragEnd={onDragEnd}
 					animate={controls}
 					style={{ x, rotate }}
-					initial={reduce ? false : { y: -10, rotate: -1.5, opacity: 0.85 }}
+					initial={reduce ? false : { y: -8, rotate: -1, opacity: 0.85 }}
 					transition={{ duration: 0.35, ease: EASE }}
 					className="absolute inset-0 cursor-grab active:cursor-grabbing"
 				>
 					<div
 						role={card.type === 'basic' && interactive ? 'button' : undefined}
 						tabIndex={card.type === 'basic' && interactive ? 0 : undefined}
-						className="deckle ruled relative h-full w-full -rotate-1 overflow-hidden text-left shadow-[0_10px_18px_rgba(90,60,40,0.12)]"
+						className="notepad ruled relative h-full w-full rotate-[0.8deg] overflow-hidden text-left shadow-[0_10px_18px_rgba(90,60,40,0.12)]"
 						onClick={() => {
 							if (!interactive || card.type !== 'basic' || moved.current) return;
 							setFlipped((value) => !value);
@@ -192,13 +192,13 @@ export function CardStack({
 								<path d="M11 18 V8" stroke="#5f8a3c" strokeWidth="1.2" />
 							</svg>
 						</span>
-						<div className="flex h-full flex-col items-center justify-center overflow-y-auto overscroll-contain px-5 py-5 text-center">
+						<div className="flex h-full flex-col items-center justify-center overflow-y-auto overscroll-contain px-6 py-6 text-center">
 							<div className="w-full text-balance">
 								{card.type === 'note' ? (
-									<p className={cn(promptClass(card.prompt), 'text-ink')}>{card.prompt}</p>
+									<p className={cn(promptClass(card.prompt), 'card-copy text-ink')}>{card.prompt}</p>
 								) : card.type === 'choice' ? (
 									<div className="space-y-2">
-										<p className={cn(promptClass(card.prompt), 'mb-3 text-ink')}>{card.prompt}</p>
+										<p className={cn(promptClass(card.prompt), 'card-copy mb-3 text-ink')}>{card.prompt}</p>
 										{(card.options ?? []).map((option) => {
 											const chosen = (review?.picked ?? picked ?? highlightOption) === option;
 											const correct = option === card.answer;
@@ -227,14 +227,14 @@ export function CardStack({
 										})}
 									</div>
 								) : showBack ? (
-									<p className={cn(promptClass(card.answer), 'text-ink')}>
+									<p className={cn(promptClass(card.answer), 'card-copy text-ink')}>
 										{card.answer}
 										{card.explanation && (
-											<span className="type-body mt-2 block font-medium text-ink-soft">{card.explanation}</span>
+											<span className="type-helper mt-2 block text-ink-soft">{card.explanation}</span>
 										)}
 									</p>
 								) : (
-									<p className={cn(promptClass(card.prompt), 'text-ink')}>{card.prompt}</p>
+									<p className={cn(promptClass(card.prompt), 'card-copy text-ink')}>{card.prompt}</p>
 								)}
 							</div>
 						</div>
@@ -270,14 +270,14 @@ export function CardStack({
 							/>
 						))}
 					</div>
-					<div className="deckle rotate-2 bg-[#fbf6ec] px-2 py-1 type-helper text-ink-soft shadow-sm">
+					<div className="notepad rotate-1 bg-[#fbf6ec] px-2 py-1 type-helper text-ink-soft shadow-sm">
 						A little taste
 					</div>
 				</div>
 			)}
 
 			{card.type === 'choice' && mode === 'taste' && !review && (
-				<p className="deckle mt-2 max-w-[12rem] rotate-1 bg-[#fbf6ec] px-2 py-1 text-center type-helper leading-tight text-ink-soft shadow-sm">
+				<p className="notepad mt-2 max-w-[12rem] rotate-1 bg-[#fbf6ec] px-2 py-1 text-center type-helper leading-tight text-ink-soft shadow-sm">
 					Most cards you swipe. A few you pick.
 				</p>
 			)}

@@ -337,7 +337,7 @@ export function MemogotchiApp({ start = 'home' }: { start?: 'home' | 'friends' }
 	return (
 		<div className="mx-auto min-h-dvh w-full max-w-md">
 			{notice && phase === 'welcome' && (
-				<p className="px-6 pt-4 text-center font-hand text-lg text-ink-soft">{notice}</p>
+				<p className="px-4 pt-4 text-center type-helper text-ink-soft">{notice}</p>
 			)}
 			<AnimatePresence mode="wait">
 				<motion.div
@@ -348,9 +348,9 @@ export function MemogotchiApp({ start = 'home' }: { start?: 'home' | 'friends' }
 					transition={{ duration: reduce ? 0 : 0.35, ease: EASE }}
 				>
 					{phase === 'loading' && (
-						<div className="wall flex min-h-dvh flex-col items-center justify-center">
+						<div className="page flex min-h-dvh flex-col items-center justify-center px-4">
 							<div className="h-40 w-32"><EggArt crack={0.4} /></div>
-							<p className="mt-4 font-hand text-2xl text-ink">Memogotchi</p>
+							<p className="type-heading mt-4 text-ink">Memogotchi</p>
 						</div>
 					)}
 					{phase === 'welcome' && <WelcomeScreen onHatch={() => setPhase('subject')} />}

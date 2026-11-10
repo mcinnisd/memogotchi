@@ -25,7 +25,7 @@ export function FriendRow({
 	onDelete: () => void;
 }) {
 	return (
-		<article className="deckle ruled relative flex items-center gap-3 px-3 py-3 shadow-paper">
+		<article className="notepad relative flex items-center gap-3 bg-[#fbf6ec] px-3 py-3 shadow-paper">
 			<span
 				className="absolute -top-2 left-6 h-4 w-12 rounded-[1px] bg-[#e4d2b4]"
 				style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,.4) 4px)' }}
@@ -36,7 +36,7 @@ export function FriendRow({
 				</div>
 				<div className="min-w-0">
 					<div className="truncate type-heading leading-none text-ink">{name}</div>
-					<div className="mt-1 type-body text-ink-soft">{topic}</div>
+					<div className="mt-1 type-helper text-ink-soft">{topic}</div>
 					<StatusChip status={status} className="mt-2" />
 				</div>
 			</button>

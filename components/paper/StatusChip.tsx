@@ -32,7 +32,7 @@ export function StatusChip({ status, className }: { status: CareStatus; classNam
 			? 'bg-sage text-[#31422c]'
 			: 'bg-[#f3e4cf] text-ink';
 	return (
-		<span className={cn('inline-flex items-center gap-1 rounded-lg px-2.5 py-1 font-hand text-base leading-none', tone, className)}>
+		<span className={cn('inline-flex items-center gap-1 rounded-lg px-2.5 py-1 type-helper leading-none', tone, className)}>
 			{status === 'a_little_hungry' && <Leaf />}
 			{status === 'needs_love' && <Bowl />}
 			{COPY[status]}

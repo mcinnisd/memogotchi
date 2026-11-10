@@ -16,7 +16,7 @@
 
 html,
 body {
-	background: #f3eadc;
+	background: #f3ebde;
 	color: var(--ink);
 	min-height: 100%;
 }
@@ -25,7 +25,7 @@ body {
 	font-family: var(--font-body), "Nunito", sans-serif;
 	font-size: 1rem;
 	letter-spacing: 0.01em;
-	background: linear-gradient(180deg, #f7f1e6 0%, #f3e7d4 100%);
+	background: #f3ebde;
 }
 
 .type-display {
@@ -88,23 +88,9 @@ input {
 	font: inherit;
 }
 
+.page,
 .wall {
-	background: linear-gradient(180deg, #f6efe4 0%, #f1e4d2 100%);
-}
-
-.daylight {
-	position: absolute;
-	left: -28px;
-	top: -18px;
-	width: 150px;
-	height: 130px;
-	transform: rotate(-8deg);
-	background:
-		linear-gradient(90deg, transparent 46%, rgba(255, 255, 255, 0.55) 46% 54%, transparent 54%),
-		linear-gradient(transparent 46%, rgba(255, 255, 255, 0.55) 46% 54%, transparent 54%),
-		rgba(255, 255, 255, 0.38);
-	filter: blur(0.2px);
-	pointer-events: none;
+	background-color: #f3ebde;
 }
 
 .notebook {
@@ -121,17 +107,35 @@ input {
 .ruled,
 .grid-paper {
 	background-color: #fbf6ec;
-	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='156' fill='none'><path d='M0 26 C 30 24 60 28 90 26 S 150 24 180 27' stroke='%238aa0b8' stroke-opacity='0.33' stroke-width='1'/><path d='M0 52 C 40 50 70 54 110 51 S 160 49 180 53' stroke='%238aa0b8' stroke-opacity='0.28' stroke-width='1'/><path d='M0 78 C 28 80 80 75 120 78 S 160 80 180 76' stroke='%238aa0b8' stroke-opacity='0.3' stroke-width='1'/><path d='M0 104 C 36 102 90 107 130 103 S 165 101 180 105' stroke='%238aa0b8' stroke-opacity='0.26' stroke-width='1'/><path d='M0 130 C 40 132 80 127 120 131 S 160 133 180 129' stroke='%238aa0b8' stroke-opacity='0.24' stroke-width='1'/><path d='M28 0 C 26 40 30 80 27 120 S 25 150 29 156' stroke='%23c4a574' stroke-opacity='0.18' stroke-width='1'/><path d='M64 0 C 66 30 61 90 65 130 S 67 150 63 156' stroke='%23c4a574' stroke-opacity='0.12' stroke-width='1'/><path d='M108 0 C 106 50 112 90 107 140 S 105 150 109 156' stroke='%23c4a574' stroke-opacity='0.12' stroke-width='1'/><path d='M150 0 C 152 40 147 100 151 156' stroke='%23c4a574' stroke-opacity='0.1' stroke-width='1'/></svg>");
-	background-size: 180px 156px;
+	background-image: repeating-linear-gradient(
+		to bottom,
+		transparent 0,
+		transparent 27px,
+		rgba(138, 160, 184, 0.28) 27px,
+		rgba(138, 160, 184, 0.28) 28px
+	);
+	background-position: 0 12px;
 }
 
-.scrap-sheet {
-	background: linear-gradient(180deg, #f7f1e6 0%, #f3e8d8 100%);
-	clip-path: polygon(1.2% 1.6%, 9% 0, 22% 1.4%, 41% 0, 63% 1.2%, 81% 0, 94% 1.5%, 100% 4%, 99% 22%, 100% 48%, 98.6% 78%, 100% 96%, 88% 100%, 64% 98.8%, 38% 100%, 12% 99%, 0 95%, 1.2% 72%, 0 46%, 1% 12%);
+/* A rectangular sheet with the torn edge on the right only, so the ruling stays straight. */
+.notepad {
+	clip-path: polygon(
+		0 0,
+		calc(100% - 7px) 0,
+		100% 8%,
+		calc(100% - 4px) 18%,
+		100% 32%,
+		calc(100% - 6px) 48%,
+		100% 66%,
+		calc(100% - 3px) 82%,
+		100% 100%,
+		0 100%
+	);
 }
 
-.deckle {
-	clip-path: polygon(2% 3%, 12% 0, 28% 2%, 46% 0, 67% 2.2%, 84% 0, 98% 3%, 100% 16%, 98% 34%, 100% 58%, 97.5% 78%, 100% 96%, 82% 100%, 60% 97.5%, 38% 100%, 14% 98%, 0 94%, 2% 74%, 0 52%, 1.5% 28%, 0 10%);
+.card-copy {
+	background: #fbf6ec;
+	padding: 0.4rem 0.75rem;
 }
 
 .sill-board {
