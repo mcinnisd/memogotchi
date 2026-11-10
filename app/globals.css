@@ -3,60 +3,95 @@
 @tailwind utilities;
 
 :root {
-	--background: #000000;
-	--foreground: #4ade80;
-	/* Tailwind green-400 */
+	--cream: #f4ecdf;
+	--ink: #3e2c22;
+	--ink-soft: #6e5646;
+	--terracotta: #e39a74;
+	--sage: #c5d3b4;
+	--paper: #fbf6ec;
+	--line: rgba(190, 164, 128, 0.55);
+	background: var(--cream);
+	color: var(--ink);
+}
+
+html,
+body {
+	background: #efe4d2;
+	color: var(--ink);
+	min-height: 100%;
 }
 
 body {
-	color: var(--foreground);
-	background: var(--background);
-	overscroll-behavior: none;
-	/* Prevent rubber-banding on mobile */
-	-webkit-font-smoothing: antialiased;
+	font-family: var(--font-body), "Nunito", sans-serif;
 }
 
-/* Retro CRT Scanline Overlay */
-body::after {
-	content: " ";
-	display: block;
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: linear-gradient(rgba(18, 16, 16, 0) 50%,
-			rgba(0, 0, 0, 0.1) 50%);
-	background-size: 100% 4px;
-	/* Scanline spacing */
-	z-index: 9999;
+button,
+input {
+	font: inherit;
+}
+
+.wall {
+	background:
+		radial-gradient(280px 180px at 0% 0%, rgba(255, 255, 255, 0.75), transparent 62%),
+		radial-gradient(240px 160px at 100% 8%, rgba(214, 186, 150, 0.2), transparent 70%),
+		linear-gradient(180deg, #f7f1e6 0%, #f3e7d6 100%);
+}
+
+.daylight {
+	position: absolute;
+	left: -28px;
+	top: -18px;
+	width: 150px;
+	height: 130px;
+	transform: rotate(-8deg);
+	background:
+		linear-gradient(90deg, transparent 46%, rgba(255, 255, 255, 0.55) 46% 54%, transparent 54%),
+		linear-gradient(transparent 46%, rgba(255, 255, 255, 0.55) 46% 54%, transparent 54%),
+		rgba(255, 255, 255, 0.38);
+	filter: blur(0.2px);
 	pointer-events: none;
-	/* Click through */
-	opacity: 0.6;
 }
 
-@layer utilities {
-	.text-balance {
-		text-wrap: balance;
-	}
+.notebook {
+	background-color: #f6f0e4;
+	background-image: repeating-linear-gradient(
+		to bottom,
+		transparent 0,
+		transparent 27px,
+		rgba(188, 164, 126, 0.45) 28px
+	);
+	box-shadow: inset 18px 0 0 #efe2cc, inset 22px 0 0 rgba(196, 92, 74, 0.35);
 }
 
-@keyframes egg-wobble {
-
-	0%,
-	100% {
-		transform: rotate(0deg);
-	}
-
-	25% {
-		transform: rotate(-5deg);
-	}
-
-	75% {
-		transform: rotate(5deg);
-	}
+.grid-paper {
+	background-color: #fbf6ec;
+	background-image:
+		linear-gradient(var(--line) 1px, transparent 1px),
+		linear-gradient(90deg, var(--line) 1px, transparent 1px);
+	background-size: 100% 18px, 18px 18px;
+	background-position: 0 8px, 0 0;
 }
 
-.animate-egg-wobble {
-	animation: egg-wobble 2s infinite ease-in-out;
+.torn {
+	border-radius: 18px 22px 16px 20px;
+	box-shadow: 0 8px 18px rgba(90, 60, 40, 0.08);
+}
+
+.stitch {
+	box-shadow: inset 0 0 0 1px rgba(90, 58, 40, 0.18);
+}
+
+.stitch::after {
+	content: "";
+	position: absolute;
+	inset: 5px;
+	border: 1.5px dashed rgba(90, 58, 40, 0.38);
+	border-radius: inherit;
+	pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.living-pet {
+		animation: none !important;
+	}
 }

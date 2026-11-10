@@ -1,45 +1,34 @@
-import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google"; // Retro-tech feel
-import "./globals.css";
+import type { Metadata, Viewport } from 'next';
+import { Fraunces, Nunito, Patrick_Hand } from 'next/font/google';
+import './globals.css';
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jetbrainsMono = JetBrains_Mono({
-	subsets: ["latin"],
-	variable: "--font-jetbrains-mono",
-	display: 'swap',
-});
+const display = Fraunces({ subsets: ['latin'], variable: '--font-display' });
+const body = Nunito({ subsets: ['latin'], variable: '--font-body' });
+const hand = Patrick_Hand({ subsets: ['latin'], weight: '400', variable: '--font-hand' });
 
 export const viewport: Viewport = {
-	width: "device-width",
+	width: 'device-width',
 	initialScale: 1,
 	maximumScale: 1,
-	userScalable: false, // Disables pinch-zoom for app-like feel
-	themeColor: "#000000",
+	userScalable: false,
+	themeColor: '#f4ecdf',
 };
 
 export const metadata: Metadata = {
-	title: "Memogotchi",
-	description: "Learn with your pet",
+	title: 'Memogotchi',
+	description: 'Keep a little life by practicing a little every day.',
 	appleWebApp: {
 		capable: true,
-		statusBarStyle: "black-translucent",
-		title: "Memogotchi",
+		statusBarStyle: 'default',
+		title: 'Memogotchi',
 	},
 };
 
-export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
-			<body
-				className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-black text-green-400 font-mono`}
-			>
-				<main className="max-w-md mx-auto min-h-[100dvh] relative overflow-hidden bg-zinc-950 border-x border-zinc-800 shadow-2xl">
-					{children}
-				</main>
+			<body className={`${display.variable} ${body.variable} ${hand.variable} bg-[#efe4d2] text-ink antialiased`}>
+				{children}
 			</body>
 		</html>
 	);
