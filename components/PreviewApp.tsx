@@ -1,6 +1,8 @@
 'use client';
 
-import type { PetRecord } from '@/lib/care/types';
+import type { PetRecord, SpriteState } from '@/lib/care/types';
+import { SPECIES_IDS } from '@/lib/species';
+import { PetArt } from '@/components/pets/PetArt';
 import { WelcomeScreen } from '@/components/screens/WelcomeScreen';
 import { SubjectScreen } from '@/components/screens/SubjectScreen';
 import { HatchScreen } from '@/components/screens/HatchScreen';
@@ -30,7 +32,7 @@ function friend(partial: Pick<PetRecord, 'id' | 'name' | 'species' | 'topic' | '
 	};
 }
 
-const CHICK = friend({ id: 'chick', name: 'Chick', species: 'chick', topic: 'Spanish', stage: 'hatchling', lastFedAt: daysAgo(0), daysCared: 1 });
+const CHICK = friend({ id: 'chick', name: 'Chick', species: 'chick', topic: 'Spanish', stage: 'well_loved', lastFedAt: daysAgo(0), daysCared: 12 });
 const FOX = friend({ id: 'fox', name: 'Fox', species: 'fox', topic: 'Python', stage: 'cared_for', lastFedAt: daysAgo(5), daysCared: 6 });
 const SPROUT = friend({ id: 'sprout', name: 'Sprout', species: 'sprout', topic: 'Biology', stage: 'cared_for', lastFedAt: daysAgo(1), daysCared: 5 });
 const BUN = friend({ id: 'bun', name: 'Bun', species: 'bun', topic: 'History', stage: 'well_loved', lastFedAt: daysAgo(0), daysCared: 12 });
@@ -48,8 +50,28 @@ const PRINT: StackCard = { id: 'print', type: 'basic', prompt: 'print()', answer
 
 const noop = () => undefined;
 
+const STATES: SpriteState[] = ['hatchling', 'cared_for', 'well_loved', 'needs_love'];
+
 export function PreviewApp({ name }: { name: string }) {
-	if (name === 'subject') return <SubjectScreen onContinue={noop} />;
+	if (name === 'pets') {
+		return (
+			<div className="notebook min-h-dvh px-2 py-4">
+				<h1 className="text-center font-hand text-4xl text-ink">States</h1>
+				{SPECIES_IDS.map((id) => (
+					<div key={id} className="mt-3 grid grid-cols-4 gap-1">
+						{STATES.map((state) => (
+							<div key={state} className="grid-paper flex h-24 items-end justify-center overflow-hidden rounded-md">
+								<div className="h-20 w-full">
+									<PetArt species={id} state={state} expression={state === 'needs_love' ? 'sad' : 'happy'} />
+								</div>
+							</div>
+						))}
+					</div>
+				))}
+			</div>
+		);
+	}
+	if (name === 'subject') return <SubjectScreen initial="spanish" onContinue={noop} />;
 	if (name === 'hatch') return <HatchScreen topic="Spanish" onContinue={noop} />;
 	if (name === 'name') return <NameScreen species="chick" onContinue={noop} />;
 	if (name === 'friends') {
@@ -71,7 +93,7 @@ export function PreviewApp({ name }: { name: string }) {
 	const taste = name === 'taste-swipe' || choice;
 	const pet = needs ? FOX : CHICK;
 	const card = ended ? NOTE : needs ? PRINT : choice ? CHOICE : HOLA;
-	const sprite = needs ? 'needs_love' as const : 'hatchling' as const;
+	const sprite = needs ? 'needs_love' as const : ended ? 'well_loved' as const : 'well_loved' as const;
 	const status = needs ? 'needs_love' as const : 'looked_after' as const;
 
 	return (
@@ -88,7 +110,7 @@ export function PreviewApp({ name }: { name: string }) {
 			speech={needs ? 'Could use a little love.' : undefined}
 			card={card}
 			mode={ended ? 'rest' : taste ? 'taste' : 'idle'}
-			revealed={!taste && !ended}
+			revealed={false}
 			showCoach={name === 'taste-swipe'}
 			progress={taste ? { index: choice ? 1 : 0, total: 5 } : undefined}
 			highlightOption={choice ? 'hello' : undefined}

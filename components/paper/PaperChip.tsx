@@ -1,7 +1,5 @@
 import { cn } from '@/lib/cn';
 
-const WASHI = ['#d7c4a2', '#b7c4a2', '#e7b89a', '#c9c3a2', '#d8b7a4', '#aebf9a'];
-
 export function PaperChip({
 	label,
 	rotation = 0,
@@ -28,12 +26,10 @@ export function PaperChip({
 				className
 			)}
 		>
-			<span
-				className="absolute -top-2 left-1/2 h-4 w-14 -translate-x-1/2 rounded-[1px] opacity-90"
-				style={{
-					backgroundColor: WASHI[washi % WASHI.length],
-					backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,0.35) 3px, rgba(255,255,255,0.35) 5px)',
-				}}
+			<img
+				src={`/props/washi-${washi % 3}.png`}
+				alt=""
+				className="pointer-events-none absolute -top-2.5 left-1/2 h-5 w-16 -translate-x-1/2 object-cover shadow-sm"
 			/>
 			<span className="pointer-events-none absolute inset-1 rounded-sm border border-dashed border-[#6a4b38]/25" />
 			{label}

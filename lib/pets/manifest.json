@@ -1,0 +1,2060 @@
+{
+  "sprites": {
+    "chick": {
+      "hatchling": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes.",
+        "width": 501,
+        "height": 520,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/chick/hatchling/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/chick/hatchling/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/chick/hatchling/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "well_loved": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes.",
+        "width": 502,
+        "height": 520,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/chick/well_loved/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/chick/well_loved/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/chick/well_loved/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "cared_for": {
+        "layered": true,
+        "approximated": true,
+        "note": "No cared-for drawing on the sheet. This is the well-loved pose. Closed eyes are a derived lid over the open eyes.",
+        "width": 502,
+        "height": 520,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/chick/cared_for/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/chick/cared_for/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/chick/cared_for/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "needs_love": {
+        "layered": true,
+        "approximated": false,
+        "note": "Washi tape was cut off the sheet crop. Eyes stayed in the body; no separate blink layer. Closed eyes are a derived lid over the open eyes.",
+        "width": 393,
+        "height": 520,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/chick/needs_love/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/chick/needs_love/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/chick/needs_love/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      }
+    },
+    "fox": {
+      "hatchling": {
+        "layered": true,
+        "approximated": false,
+        "note": "Ear tips were extracted but the cut showed a seam, so they stay painted on the body. Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 506,
+        "layers": [
+          {
+            "id": "ears",
+            "file": "/pets/fox/hatchling/ears.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.7
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": false
+          },
+          {
+            "id": "body",
+            "file": "/pets/fox/hatchling/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/fox/hatchling/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/fox/hatchling/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "well_loved": {
+        "layered": true,
+        "approximated": false,
+        "note": "Ear tips were extracted but the cut showed a seam, so they stay painted on the body. Closed eyes are a derived lid over the open eyes.",
+        "width": 500,
+        "height": 520,
+        "layers": [
+          {
+            "id": "ears",
+            "file": "/pets/fox/well_loved/ears.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.7
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": false
+          },
+          {
+            "id": "body",
+            "file": "/pets/fox/well_loved/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/fox/well_loved/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/fox/well_loved/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "cared_for": {
+        "layered": true,
+        "approximated": true,
+        "note": "No cared-for drawing on the sheet. This is the well-loved pose. Ear tips were extracted but the cut showed a seam, so they stay painted on the body. Closed eyes are a derived lid over the open eyes.",
+        "width": 500,
+        "height": 520,
+        "layers": [
+          {
+            "id": "ears",
+            "file": "/pets/fox/cared_for/ears.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.7
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": false
+          },
+          {
+            "id": "body",
+            "file": "/pets/fox/cared_for/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/fox/cared_for/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/fox/cared_for/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "needs_love": {
+        "layered": true,
+        "approximated": false,
+        "note": "Ear tips were extracted but the cut showed a seam, so they stay painted on the body. Closed eyes are a derived lid over the open eyes.",
+        "width": 441,
+        "height": 520,
+        "layers": [
+          {
+            "id": "ears",
+            "file": "/pets/fox/needs_love/ears.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.7
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": false
+          },
+          {
+            "id": "body",
+            "file": "/pets/fox/needs_love/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/fox/needs_love/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/fox/needs_love/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      }
+    },
+    "sprout": {
+      "hatchling": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 441,
+        "layers": [
+          {
+            "id": "leaves",
+            "file": "/pets/sprout/hatchling/leaves.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.72
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": true
+          },
+          {
+            "id": "body",
+            "file": "/pets/sprout/hatchling/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/sprout/hatchling/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/sprout/hatchling/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "well_loved": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes.",
+        "width": 468,
+        "height": 520,
+        "layers": [
+          {
+            "id": "leaves",
+            "file": "/pets/sprout/well_loved/leaves.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.72
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": true
+          },
+          {
+            "id": "body",
+            "file": "/pets/sprout/well_loved/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/sprout/well_loved/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/sprout/well_loved/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "cared_for": {
+        "layered": true,
+        "approximated": true,
+        "note": "No cared-for drawing on the sheet. This is the well-loved pose. Closed eyes are a derived lid over the open eyes.",
+        "width": 468,
+        "height": 520,
+        "layers": [
+          {
+            "id": "leaves",
+            "file": "/pets/sprout/cared_for/leaves.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.72
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": true
+          },
+          {
+            "id": "body",
+            "file": "/pets/sprout/cared_for/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/sprout/cared_for/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/sprout/cared_for/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "needs_love": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes.",
+        "width": 488,
+        "height": 520,
+        "layers": [
+          {
+            "id": "leaves",
+            "file": "/pets/sprout/needs_love/leaves.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.72
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": true
+          },
+          {
+            "id": "body",
+            "file": "/pets/sprout/needs_love/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/sprout/needs_love/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/sprout/needs_love/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      }
+    },
+    "mouse": {
+      "hatchling": {
+        "layered": true,
+        "approximated": false,
+        "note": "Ear tips were extracted but the cut showed a seam, so they stay painted on the body. Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 515,
+        "layers": [
+          {
+            "id": "ears",
+            "file": "/pets/mouse/hatchling/ears.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.7
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": false
+          },
+          {
+            "id": "body",
+            "file": "/pets/mouse/hatchling/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/mouse/hatchling/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/mouse/hatchling/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "well_loved": {
+        "layered": true,
+        "approximated": false,
+        "note": "Ear tips were extracted but the cut showed a seam, so they stay painted on the body. Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 458,
+        "layers": [
+          {
+            "id": "ears",
+            "file": "/pets/mouse/well_loved/ears.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.7
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": false
+          },
+          {
+            "id": "body",
+            "file": "/pets/mouse/well_loved/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/mouse/well_loved/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/mouse/well_loved/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "cared_for": {
+        "layered": true,
+        "approximated": true,
+        "note": "No cared-for drawing on the sheet. This is the well-loved pose. Ear tips were extracted but the cut showed a seam, so they stay painted on the body. Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 458,
+        "layers": [
+          {
+            "id": "ears",
+            "file": "/pets/mouse/cared_for/ears.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.7
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": false
+          },
+          {
+            "id": "body",
+            "file": "/pets/mouse/cared_for/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/mouse/cared_for/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/mouse/cared_for/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "needs_love": {
+        "layered": true,
+        "approximated": false,
+        "note": "Ear tips were extracted but the cut showed a seam, so they stay painted on the body. Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 500,
+        "layers": [
+          {
+            "id": "ears",
+            "file": "/pets/mouse/needs_love/ears.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.7
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": false
+          },
+          {
+            "id": "body",
+            "file": "/pets/mouse/needs_love/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/mouse/needs_love/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/mouse/needs_love/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      }
+    },
+    "frog": {
+      "hatchling": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 388,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/frog/hatchling/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/frog/hatchling/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/frog/hatchling/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "well_loved": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 406,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/frog/well_loved/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/frog/well_loved/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/frog/well_loved/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "cared_for": {
+        "layered": true,
+        "approximated": true,
+        "note": "No cared-for drawing on the sheet. This is the well-loved pose. Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 406,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/frog/cared_for/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/frog/cared_for/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/frog/cared_for/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "needs_love": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 405,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/frog/needs_love/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/frog/needs_love/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/frog/needs_love/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      }
+    },
+    "butterfly": {
+      "hatchling": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes.",
+        "width": 461,
+        "height": 520,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/butterfly/hatchling/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/butterfly/hatchling/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/butterfly/hatchling/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "well_loved": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 405,
+        "layers": [
+          {
+            "id": "wings",
+            "file": "/pets/butterfly/well_loved/wings.png",
+            "z": 0,
+            "anchor": [
+              0.5,
+              0.55
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "flap",
+            "separated": true
+          },
+          {
+            "id": "body",
+            "file": "/pets/butterfly/well_loved/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/butterfly/well_loved/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/butterfly/well_loved/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "cared_for": {
+        "layered": true,
+        "approximated": true,
+        "note": "No cared-for drawing on the sheet. This is the well-loved pose. Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 405,
+        "layers": [
+          {
+            "id": "wings",
+            "file": "/pets/butterfly/cared_for/wings.png",
+            "z": 0,
+            "anchor": [
+              0.5,
+              0.55
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "flap",
+            "separated": true
+          },
+          {
+            "id": "body",
+            "file": "/pets/butterfly/cared_for/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/butterfly/cared_for/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/butterfly/cared_for/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "needs_love": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 429,
+        "layers": [
+          {
+            "id": "wings",
+            "file": "/pets/butterfly/needs_love/wings.png",
+            "z": 0,
+            "anchor": [
+              0.5,
+              0.55
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "flap",
+            "separated": true
+          },
+          {
+            "id": "body",
+            "file": "/pets/butterfly/needs_love/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/butterfly/needs_love/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/butterfly/needs_love/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      }
+    },
+    "bun": {
+      "hatchling": {
+        "layered": true,
+        "approximated": false,
+        "note": "Ear tips were extracted but the cut showed a seam, so they stay painted on the body. Closed eyes are a derived lid over the open eyes.",
+        "width": 390,
+        "height": 520,
+        "layers": [
+          {
+            "id": "ears",
+            "file": "/pets/bun/hatchling/ears.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.7
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": false
+          },
+          {
+            "id": "body",
+            "file": "/pets/bun/hatchling/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/bun/hatchling/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/bun/hatchling/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "well_loved": {
+        "layered": true,
+        "approximated": false,
+        "note": "Ear tips were extracted but the cut showed a seam, so they stay painted on the body. Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 498,
+        "layers": [
+          {
+            "id": "ears",
+            "file": "/pets/bun/well_loved/ears.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.7
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": false
+          },
+          {
+            "id": "body",
+            "file": "/pets/bun/well_loved/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/bun/well_loved/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/bun/well_loved/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "cared_for": {
+        "layered": true,
+        "approximated": true,
+        "note": "No cared-for drawing on the sheet. This is the well-loved pose. Ear tips were extracted but the cut showed a seam, so they stay painted on the body. Closed eyes are a derived lid over the open eyes.",
+        "width": 520,
+        "height": 498,
+        "layers": [
+          {
+            "id": "ears",
+            "file": "/pets/bun/cared_for/ears.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.7
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": false
+          },
+          {
+            "id": "body",
+            "file": "/pets/bun/cared_for/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/bun/cared_for/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/bun/cared_for/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "needs_love": {
+        "layered": true,
+        "approximated": false,
+        "note": "Ear tips were extracted but the cut showed a seam, so they stay painted on the body. Closed eyes are a derived lid over the open eyes.",
+        "width": 516,
+        "height": 520,
+        "layers": [
+          {
+            "id": "ears",
+            "file": "/pets/bun/needs_love/ears.png",
+            "z": 2,
+            "anchor": [
+              0.5,
+              0.7
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "wiggle",
+            "separated": false
+          },
+          {
+            "id": "body",
+            "file": "/pets/bun/needs_love/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/bun/needs_love/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/bun/needs_love/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      }
+    },
+    "cap": {
+      "hatchling": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes. The cap stays on the body; cutting it left a jagged stem.",
+        "width": 497,
+        "height": 520,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/cap/hatchling/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/cap/hatchling/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/cap/hatchling/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "well_loved": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes. The cap stays on the body; cutting it left a jagged stem.",
+        "width": 520,
+        "height": 499,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/cap/well_loved/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/cap/well_loved/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/cap/well_loved/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "cared_for": {
+        "layered": true,
+        "approximated": true,
+        "note": "No cared-for drawing on the sheet. This is the well-loved pose. Closed eyes are a derived lid over the open eyes. The cap stays on the body; cutting it left a jagged stem.",
+        "width": 520,
+        "height": 499,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/cap/cared_for/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/cap/cared_for/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/cap/cared_for/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      },
+      "needs_love": {
+        "layered": true,
+        "approximated": false,
+        "note": "Closed eyes are a derived lid over the open eyes. The cap stays on the body; cutting it left a jagged stem.",
+        "width": 520,
+        "height": 507,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/cap/needs_love/body.png",
+            "z": 3,
+            "anchor": [
+              0.5,
+              0.86
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          },
+          {
+            "id": "eyes",
+            "file": "/pets/cap/needs_love/eyes.png",
+            "z": 5,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": false
+          },
+          {
+            "id": "eyesClosed",
+            "file": "/pets/cap/needs_love/eyes-closed.png",
+            "z": 6,
+            "anchor": [
+              0.5,
+              0.5
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "blink",
+            "separated": true
+          }
+        ]
+      }
+    },
+    "egg": {
+      "egg": {
+        "layered": false,
+        "approximated": false,
+        "note": "Whole egg from welcome.jpg. No separate crack frame.",
+        "width": 540,
+        "height": 584,
+        "layers": [
+          {
+            "id": "body",
+            "file": "/pets/egg/egg/body.png",
+            "z": 1,
+            "anchor": [
+              0.5,
+              0.9
+            ],
+            "offset": [
+              0,
+              0
+            ],
+            "animate": "bob",
+            "separated": true
+          }
+        ]
+      }
+    }
+  },
+  "notes": []
+}

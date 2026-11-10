@@ -2,7 +2,7 @@
 
 import type { CareStatus } from '@/lib/care/types';
 import type { SpeciesId } from '@/lib/species';
-import { LivingPet } from '@/components/pets/LivingPet';
+import { PetArt } from '@/components/pets/PetArt';
 import { StatusChip } from '@/components/paper/StatusChip';
 
 export function FriendRow({
@@ -31,8 +31,8 @@ export function FriendRow({
 				style={{ backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(255,255,255,.4) 4px)' }}
 			/>
 			<button type="button" onClick={onOpen} className="flex min-w-0 flex-1 items-center gap-3 text-left">
-				<div className="h-16 w-16 shrink-0">
-					<LivingPet species={species} state={sprite} brighten={status === 'needs_love' ? 0.55 : 1} />
+				<div className="h-20 w-20 shrink-0">
+					<PetArt species={species} state={sprite} brighten={status === 'needs_love' ? 0.55 : 1} />
 				</div>
 				<div className="min-w-0">
 					<div className="truncate font-display text-2xl font-semibold leading-none text-ink">{name}</div>

@@ -23,6 +23,9 @@ body {
 
 body {
 	font-family: var(--font-body), "Nunito", sans-serif;
+	background-color: #f3e6d2;
+	background-image: url('/props/paper-grain.png');
+	background-size: 160px auto;
 }
 
 button,
@@ -70,6 +73,13 @@ input {
 		linear-gradient(90deg, var(--line) 1px, transparent 1px);
 	background-size: 100% 18px, 18px 18px;
 	background-position: 0 8px, 0 0;
+}
+
+.scrap-sheet {
+	background-color: #f6efe3;
+	background-image: url('/props/paper-grain.png');
+	background-size: 140px auto;
+	clip-path: polygon(1.2% 1.6%, 9% 0, 22% 1.4%, 41% 0, 63% 1.2%, 81% 0, 94% 1.5%, 100% 4%, 99% 22%, 100% 48%, 98.6% 78%, 100% 96%, 88% 100%, 64% 98.8%, 38% 100%, 12% 99%, 0 95%, 1.2% 72%, 0 46%, 1% 12%);
 }
 
 .torn {

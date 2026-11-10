@@ -124,7 +124,8 @@ export function CardStack({
 		}, reduce ? 0 : 320);
 	};
 
-	const showBack = flipped && card.type === 'basic' && !revealed;
+	const showBack = flipped && card.type === 'basic';
+	void revealed;
 
 	return (
 		<div className="relative flex w-full flex-col items-center">
@@ -201,16 +202,15 @@ export function CardStack({
 											);
 										})}
 									</div>
-								) : (
+								) : showBack ? (
 									<p className="font-hand text-[2rem] leading-tight text-ink">
-										{card.prompt}
-										{(revealed || showBack) && (
-											<span className="mt-1 block font-body text-xl font-semibold text-ink-soft">({card.answer})</span>
-										)}
-										{showBack && card.explanation && (
+										{card.answer}
+										{card.explanation && (
 											<span className="mt-2 block font-body text-sm font-medium text-ink-soft">{card.explanation}</span>
 										)}
 									</p>
+								) : (
+									<p className="font-hand text-[2rem] leading-tight text-ink">{card.prompt}</p>
 								)}
 							</div>
 						</div>

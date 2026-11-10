@@ -5,21 +5,23 @@ import { STARTER_SUBJECTS } from '@/lib/config';
 import { Dock, DockButton } from '@/components/paper/Dock';
 import { PaperChip } from '@/components/paper/PaperChip';
 
-const PLACES: Record<string, string> = {
-	python: 'right-2 top-2',
-	biology: 'left-1 top-16',
-	spanish: 'left-1/2 top-12 -translate-x-1/2',
-	history: 'right-0 top-[5.5rem]',
-	trivia: 'left-3 top-44',
-	other: 'right-2 top-[12.5rem]',
+const PLACES: Record<string, { top: string; left: string; rotate: number; z: number }> = {
+	python: { top: '0%', left: '52%', rotate: 6, z: 2 },
+	biology: { top: '14%', left: '-8%', rotate: -8, z: 4 },
+	spanish: { top: '24%', left: '22%', rotate: -2, z: 5 },
+	history: { top: '18%', left: '66%', rotate: 7, z: 4 },
+	trivia: { top: '54%', left: '2%', rotate: -5, z: 2 },
+	other: { top: '58%', left: '42%', rotate: 4, z: 3 },
 };
 
 export function SubjectScreen({
 	onContinue,
+	initial = null,
 }: {
 	onContinue: (topic: string) => void;
+	initial?: string | null;
 }) {
-	const [selected, setSelected] = useState<string | null>(null);
+	const [selected, setSelected] = useState<string | null>(initial);
 	const [custom, setCustom] = useState('');
 	const ready = selected === 'other' ? custom.trim().length > 0 : Boolean(selected);
 
@@ -30,18 +32,26 @@ export function SubjectScreen({
 				<h1 className="text-center font-display text-[2rem] font-semibold leading-tight text-ink">
 					What are you practicing?
 				</h1>
-				<div className="relative mx-auto mt-8 h-80 w-full max-w-sm flex-1">
-					{STARTER_SUBJECTS.map((subject, index) => (
-						<div key={subject.id} className={`absolute ${PLACES[subject.id] ?? ''}`}>
-							<PaperChip
-								label={subject.label}
-								rotation={subject.rotation}
-								selected={selected === subject.id}
-								washi={index}
-								onClick={() => setSelected(subject.id)}
-							/>
-						</div>
-					))}
+				<div className="relative mx-auto mt-6 h-[22rem] w-full max-w-[22rem]">
+					{STARTER_SUBJECTS.map((subject, index) => {
+						const place = PLACES[subject.id];
+						return (
+							<div
+								key={subject.id}
+								className="absolute"
+								style={{ top: place.top, left: place.left, zIndex: selected === subject.id ? 6 : place.z }}
+							>
+								<PaperChip
+									label={subject.label}
+									rotation={place.rotate}
+									selected={selected === subject.id}
+									washi={index}
+									className={subject.id === 'spanish' ? 'min-w-[8.5rem] px-5 py-4 text-[1.85rem]' : 'min-w-[7rem]'}
+									onClick={() => setSelected(subject.id)}
+								/>
+							</div>
+						);
+					})}
 				</div>
 				{selected === 'other' && (
 					<label className="mx-auto mt-2 block w-full max-w-xs">

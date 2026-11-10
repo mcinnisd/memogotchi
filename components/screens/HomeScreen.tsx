@@ -6,7 +6,7 @@ import { CardStack, type AnswerEvent, type StackCard } from '@/components/paper/
 import { Dock, DockButton } from '@/components/paper/Dock';
 import { PaperTag } from '@/components/paper/PaperTag';
 import { Windowsill } from '@/components/paper/Windowsill';
-import { LivingPet } from '@/components/pets/LivingPet';
+import { PetArt } from '@/components/pets/PetArt';
 
 export function HomeScreen({
 	name,
@@ -65,19 +65,19 @@ export function HomeScreen({
 }) {
 	return (
 		<div className="wall relative flex min-h-dvh flex-col">
-			<div className="relative mx-2 mt-3 flex min-h-0 flex-1 flex-col overflow-hidden bg-[#f7f1e6] shadow-paper" style={{ borderRadius: '26px 18px 28px 16px' }}>
+			<div className="scrap-sheet relative mx-2 mt-3 flex min-h-0 flex-1 flex-col overflow-hidden shadow-paper">
 				<div className="flex items-start justify-between gap-2 px-3 pt-3">
 					<PaperTag onClick={onOpenFriends}>
 						<span>{name}</span>
 						<span className="inline-block h-7 w-7">
-							<LivingPet species={species} state={sprite === 'egg' ? 'hatchling' : sprite} expression={expression} brighten={brighten} />
+							<PetArt species={species} state={sprite === 'egg' ? 'hatchling' : sprite} expression={expression} brighten={brighten} />
 						</span>
 					</PaperTag>
 					<PaperTag tone="sage" onClick={onOpenFriends}>{topic}</PaperTag>
 				</div>
 				<Windowsill speech={speech}>
-					<div className="h-36">
-						<LivingPet
+					<div className="h-full">
+						<PetArt
 							species={species}
 							state={sprite === 'egg' ? 'hatchling' : sprite}
 							expression={expression}

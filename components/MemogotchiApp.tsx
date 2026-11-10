@@ -409,7 +409,7 @@ export function MemogotchiApp({ start = 'home' }: { start?: 'home' | 'friends' }
 							speech={speech}
 							card={homeCard()}
 							mode={session?.kind === 'ended' ? 'rest' : session?.kind === 'taste' ? 'taste' : session?.kind === 'feed' ? 'play' : 'idle'}
-							revealed={!session && Boolean(keepsake)}
+							revealed={false}
 							showCoach={session?.kind === 'taste' && session.index < 2 && session.cards[session.index]?.type === 'basic'}
 							progress={session?.kind === 'taste' ? { index: session.index, total: Math.min(PLACEMENT.maxQuestions, Math.max(session.cards.length, session.index + 1)) } : undefined}
 							busy={busy}

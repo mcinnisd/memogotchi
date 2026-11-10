@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from 'next';
-import { Fraunces, Nunito, Patrick_Hand } from 'next/font/google';
+import { Gaegu, Nunito } from 'next/font/google';
 import './globals.css';
 
-const display = Fraunces({ subsets: ['latin'], variable: '--font-display' });
+const display = Gaegu({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-display' });
 const body = Nunito({ subsets: ['latin'], variable: '--font-body' });
-const hand = Patrick_Hand({ subsets: ['latin'], weight: '400', variable: '--font-hand' });
+const hand = Gaegu({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-hand' });
 
 export const viewport: Viewport = {
 	width: 'device-width',

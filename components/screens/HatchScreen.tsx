@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { SPECIES, SPECIES_IDS, type SpeciesId } from '@/lib/species';
 import { Dock, DockButton } from '@/components/paper/Dock';
 import { PaperTag } from '@/components/paper/PaperTag';
-import { LivingPet } from '@/components/pets/LivingPet';
+import { PetArt } from '@/components/pets/PetArt';
 
 export function HatchScreen({
 	topic,
@@ -26,8 +26,8 @@ export function HatchScreen({
 				type="button"
 				className="torn grid-paper mx-auto mt-4 flex w-[78%] flex-col items-center px-3 py-3"
 			>
-				<div className="h-40 w-40">
-					<LivingPet species={selected} state="hatchling" />
+				<div className="h-52 w-full">
+					<PetArt species={selected} state="well_loved" />
 				</div>
 				<div className="font-display text-3xl text-ink">{SPECIES[selected].name}</div>
 			</button>
@@ -55,7 +55,7 @@ function SpeciesTile({ id, onClick }: { id: SpeciesId; onClick: () => void }) {
 	return (
 		<button type="button" onClick={onClick} className="torn grid-paper flex flex-col items-center px-1 py-1">
 			<div className="h-14 w-14">
-				<LivingPet species={id} state="hatchling" brighten={1} />
+				<PetArt species={id} state="well_loved" brighten={1} />
 			</div>
 			<span className="font-body text-xs font-bold text-ink">{SPECIES[id].name}</span>
 		</button>

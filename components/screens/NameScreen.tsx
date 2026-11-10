@@ -4,7 +4,7 @@ import { useState } from 'react';
 import type { SpeciesId } from '@/lib/species';
 import { speciesName } from '@/lib/species';
 import { Dock, DockButton } from '@/components/paper/Dock';
-import { LivingPet } from '@/components/pets/LivingPet';
+import { PetArt } from '@/components/pets/PetArt';
 import { Windowsill } from '@/components/paper/Windowsill';
 
 export function NameScreen({
@@ -21,7 +21,9 @@ export function NameScreen({
 			<div className="daylight" />
 			<div className="pt-6">
 				<Windowsill>
-					<LivingPet species={species} state="hatchling" />
+					<div className="h-full">
+						<PetArt species={species} state="well_loved" />
+					</div>
 				</Windowsill>
 			</div>
 			<div className="mx-auto mt-2 flex w-[88%] flex-col items-center gap-3">
