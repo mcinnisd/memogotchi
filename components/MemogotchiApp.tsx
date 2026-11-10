@@ -85,12 +85,14 @@ export function MemogotchiApp({ start = 'home' }: { start?: 'home' | 'friends' }
 		setUserId(state.userId);
 		setAnonymous(state.anonymous);
 		setRuntime(state.mode);
-		setKeepsake(state.keepsake);
-		setActiveId(state.activePetId);
+		// Hatch, taste, skip, and rest already have a friend open. The landing
+		// pick (and its keepsake) is only for a cold open.
 		if (prefer) {
 			setPhase(prefer);
 			return;
 		}
+		setKeepsake(state.keepsake);
+		setActiveId(state.activePetId);
 		if (state.pets.length === 0) setPhase('welcome');
 		else setPhase(start === 'friends' ? 'friends' : 'home');
 	}, [start]);
